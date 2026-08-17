@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+// Set the page title and CSS file, then include the header.
 $pageTitle = 'Log In · Hall of Legends';
 $pageCss = 'login.css';
 require __DIR__.'/includes/header.php';
