@@ -1,0 +1,8 @@
+<div class="hol-social-row">
+  <p>Or Enter using:</p>
+  <div class="hol-social-icons">
+    <a href="#" class="hol-social-icon" aria-label="Continue with Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7C16.4 3.66 15.4 3.58 14.24 3.58c-2.44 0-4.11 1.49-4.11 4.22V9.9H7.4V13h2.73v8h3.37z"/></svg></a>
+    <a href="#" class="hol-social-icon" aria-label="Continue with Google"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 12.23c0-.71-.06-1.4-.18-2.05H12v3.87h5.4a4.62 4.62 0 0 1-2 3.03v2.5h3.24c1.9-1.75 2.96-4.33 2.96-7.35z" opacity=".6"/><path d="M12 22c2.7 0 4.96-.9 6.62-2.42l-3.24-2.5c-.9.6-2.05.96-3.38.96-2.6 0-4.8-1.76-5.59-4.12H3.06v2.58A10 10 0 0 0 12 22z"/><path d="M6.41 13.92A5.99 5.99 0 0 1 6.09 12c0-.67.11-1.32.32-1.92V7.5H3.06A10 10 0 0 0 2 12c0 1.61.39 3.14 1.06 4.5l3.35-2.58z" opacity=".8"/><path d="M12 6.06c1.47 0 2.79.5 3.82 1.5l2.87-2.87C16.95 2.99 14.7 2 12 2A10 10 0 0 0 3.06 7.5l3.35 2.58C7.2 7.82 9.4 6.06 12 6.06z" opacity=".4"/></svg></a>
+    <a href="#" class="hol-social-icon" aria-label="Continue with X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 3H21l-6.35 7.26L22 21h-6.16l-4.82-6.3L5.5 21H3l6.8-7.77L2 3h6.32l4.36 5.77L18.24 3zm-1.08 16.17h1.7L7.9 4.73H6.08l11.08 14.44z"/></svg></a>
+  </div>
+</div>
