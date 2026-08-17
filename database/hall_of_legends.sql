@@ -62,12 +62,13 @@ SELECT
 FROM users;
 
 -- Seed data. Demo password for every account below is: password
+-- Hashes are stored here because the app verifies passwords with password_verify().
 INSERT INTO users (username, email, password, role, rep) VALUES
-('admin_dragon', 'admin@hall.dev', 'password', 'admin', 9200),
-('mika.exe', 'mika@hall.dev', 'password', 'user', 9910),
-('jrunner_45', 'jrunner@hall.dev', 'password', 'user', 8420),
-('10noblade', 'noblade@hall.dev', 'password', 'user', 7540),
-('coldstreak', 'cold@hall.dev', 'password', 'user', 6110);
+('admin_dragon', 'admin@hall.dev', '$2y$10$3acoSBQDTqeldYLkTGVHsusBDX0PX8pz3JNV3VUlxDRYmioODOLFe', 'admin', 9200),
+('mika.exe', 'mika@hall.dev', '$2y$10$3acoSBQDTqeldYLkTGVHsusBDX0PX8pz3JNV3VUlxDRYmioODOLFe', 'user', 9910),
+('jrunner_45', 'jrunner@hall.dev', '$2y$10$3acoSBQDTqeldYLkTGVHsusBDX0PX8pz3JNV3VUlxDRYmioODOLFe', 'user', 8420),
+('10noblade', 'noblade@hall.dev', '$2y$10$3acoSBQDTqeldYLkTGVHsusBDX0PX8pz3JNV3VUlxDRYmioODOLFe', 'user', 7540),
+('coldstreak', 'cold@hall.dev', '$2y$10$3acoSBQDTqeldYLkTGVHsusBDX0PX8pz3JNV3VUlxDRYmioODOLFe', 'user', 6110);
 
 INSERT INTO entries (user_id, title, game, type, description, rep_awarded) VALUES
 (3, 'Sub 20 speedrun, First clean deathless run.', 'Celeste', 'Speedrun', 'Route skips the crystal heart pickup in chapter 4 and takes the golden feather shortcut instead.', 350),

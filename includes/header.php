@@ -30,9 +30,9 @@ $page_css   = $page_css   ?? null;
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- One shared stylesheet drives the whole look, plus one
          page-specific stylesheet layered on top of it. -->
-    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/styles/base.css">
     <?php if ($page_css): ?>
-        <link rel="stylesheet" href="assets/css/<?php echo e($page_css); ?>">
+        <link rel="stylesheet" href="assets/styles/<?php echo e($page_css); ?>">
     <?php endif; ?>
 </head>
 <body>
@@ -40,10 +40,6 @@ $page_css   = $page_css   ?? null;
 <!-- ---------------- BUTTON NAVIGATION ---------------- -->
 <?php if (is_logged_in()): ?>
     <div class="hol-orb-nav">
-        <a href="index.php" class="hol-orb-btn">Feed</a>
-        <a href="post.php" class="hol-orb-btn hol-orb-btn--accent">+ New Entry</a>
-        <a href="leaderboard.php" class="hol-orb-btn">Leaderboard</a>
-
         <?php if (is_admin()): ?>
             <!-- This button ONLY shows for admins -->
             <a href="moderate.php" class="hol-orb-btn hol-orb-btn--mod">Moderate</a>

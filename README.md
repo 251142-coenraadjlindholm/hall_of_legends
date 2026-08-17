@@ -24,11 +24,13 @@ a button, pill, or clickable card (see the floating button cluster in
 ## Setup
 
 1. Start Apache and MySQL in XAMPP.
-2. Copy this whole folder into `htdocs/hall-of-legends`.
+2. Copy this whole folder into `htdocs/hall_of_legends`.
 3. Open phpMyAdmin → SQL tab → paste and run `database/hall_of_legends.sql`.
 4. Confirm `config/db.php` matches your MySQL credentials (default XAMPP: user `root`, no password).
 5. Create an empty `uploads/` folder in the project root if it isn't already there.
-6. Visit `http://localhost/hall-of-legends/register.php` to create an account, or log in with a seeded demo account below.
+6. Visit `http://localhost/hall_of_legends/register.php` to create an account, or log in with a seeded demo account below.
+
+> If you prefer the hyphenated route, a Windows junction alias is available at `C:\xampp\htdocs\hall-of-legends`, and Apache will resolve it to the same project.
 
 ## Demo accounts
 

@@ -1,6 +1,6 @@
 <?php
 require __DIR__.'/config/db.php';
-require __DIR__.'/includes/functions.php';
+require __DIR__.'/includes/functions.php';  
 require_login();
 
 // Get the filter from the query string, defaulting to 'All' if not provided. Then build the SQL query based on the filter and fetch the entries from the database.
@@ -43,6 +43,24 @@ require __DIR__.'/includes/header.php';
 
     <div style="display:grid;grid-template-columns:2.1fr 1fr;gap:40px;">
       <div>
+        <!-- DRAG AND DROP UPLOAD ZONE INTEGRATION -->
+        <div style="background: rgba(220, 38, 38, 0.03); border: 1px solid rgba(220, 38, 38, 0.2); border-radius: 12px; padding: 20px; margin-bottom: 32px;">
+          <form action="post.php" method="POST" enctype="multipart/form-data" data-confirm="Are you sure you want to upload this file to the Hall of Legends?">
+            
+            <!-- Target ID structures used by your main.js -->
+            <div id="dropzone" style="border: 2px dashed #dc2626; border-radius: 8px; padding: 30px; text-align: center; cursor: pointer; background: rgba(0,0,0,0.2); transition: all 0.2s ease;">
+              <span id="dropzone-label" style="color: var(--text-secondary); font-size: 15px; font-weight: 500;">
+                Drag & drop your legend file here or click to browse
+              </span>
+              <input type="file" id="file-input" name="legend_file" style="display: none;">
+            </div>
+            
+            <button type="submit" class="hol-btn-outline-red hol-btn" style="width: 100%; justify-content: center; margin-top: 12px; display: flex; font-weight: bold;">
+              Confirm & Upload File
+            </button>
+          </form>
+        </div>
+
         <div class="hol-flex-between" style="margin-bottom:24px;">
           <h2 class="hol-section-title">Legend Feed</h2>
           <a href="post.php" class="hol-btn-outline-red hol-btn">+ New Entry</a>
