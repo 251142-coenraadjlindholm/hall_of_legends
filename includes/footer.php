@@ -10,10 +10,10 @@
 </main><!-- /.page  (closes the <main> opened in header.php) -->
 
 <!-- ---------------- FOOTER ---------------- -->
-<footer class="hol-foot">
+<!-- <footer class="hol-footer">
     <p>Hall of Legends · Some things deserve to be remembered.</p>
-    <p class="hol-foot-tiny">Every query here runs through prepared statements.</p>
-</footer>
+    <p class="hol-footer-small">Every query here runs through prepared statements.</p>
+</footer> -->
 
 <script src="assets/js/main.js"></script>
 <script>

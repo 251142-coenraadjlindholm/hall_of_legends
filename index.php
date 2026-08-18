@@ -25,48 +25,30 @@ $pageTitle = 'Hall of Legends · Feed';
 $pageCss = 'index.css';
 require __DIR__.'/includes/header.php';
 ?>
-<div class="hol-screen">
-  <div class="hol-panel">
-    <div class="hol-flex-between" style="margin-bottom:8px;">
-      <h1 class="hol-glow-heading" style="font-size:40px;">HALL OF LEGENDS</h1>
+<div class="hol-page-screen">
+  <div class="hol-page-panel">
+    <div class="hol-layout-row" style="margin-bottom:8px;">
+      <h1 class="hol-page-heading" style="font-size:40px;">HALL OF LEGENDS</h1>
       <div class="hol-entry-author">
         <div class="hol-avatar"><?php echo htmlspecialchars(avatar_initials($_SESSION['username'])); ?></div>
         <div class="hol-author-meta"><div class="name" style="font-size:20px;"><?php echo htmlspecialchars($_SESSION['username']); ?></div></div>
       </div>
     </div>
 
-    <div class="hol-pill-tabs">
+    <div class="hol-filter-tabs">
       <?php foreach (['All','Speedruns','Screenshots'] as $f): ?>
-        <a href="index.php?filter=<?php echo urlencode($f); ?>" class="hol-pill-tab<?php echo $filter === $f ? ' is-active' : ''; ?>"><?php echo $f; ?></a>
+        <a href="index.php?filter=<?php echo urlencode($f); ?>" class="hol-filter-tab<?php echo ($filter === $f) ? ' is-active' : ''; ?>"><?php echo $f; ?></a>
       <?php endforeach; ?>
     </div>
 
-    <div style="display:grid;grid-template-columns:2.1fr 1fr;gap:40px;">
-      <div>
-        <!-- DRAG AND DROP UPLOAD ZONE INTEGRATION -->
-        <div style="background: rgba(220, 38, 38, 0.03); border: 1px solid rgba(220, 38, 38, 0.2); border-radius: 12px; padding: 20px; margin-bottom: 32px;">
-          <form action="post.php" method="POST" enctype="multipart/form-data" data-confirm="Are you sure you want to upload this file to the Hall of Legends?">
-            
-            <!-- Target ID structures used by your main.js -->
-            <div id="dropzone" style="border: 2px dashed #dc2626; border-radius: 8px; padding: 30px; text-align: center; cursor: pointer; background: rgba(0,0,0,0.2); transition: all 0.2s ease;">
-              <span id="dropzone-label" style="color: var(--text-secondary); font-size: 15px; font-weight: 500;">
-                Drag & drop your legend file here or click to browse
-              </span>
-              <input type="file" id="file-input" name="legend_file" style="display: none;">
-            </div>
-            
-            <button type="submit" class="hol-btn-outline-red hol-btn" style="width: 100%; justify-content: center; margin-top: 12px; display: flex; font-weight: bold;">
-              Confirm & Upload File
-            </button>
-          </form>
+    <div class="hol-home-layout">
+      <div class="hol-feed-column">
+        <div class="hol-layout-row hol-feed-header">
+          <h2 class="hol-section-heading">Legend Feed</h2>
+          <a href="post.php" class="hol-button-outline-red hol-button">+ New Entry</a>
         </div>
 
-        <div class="hol-flex-between" style="margin-bottom:24px;">
-          <h2 class="hol-section-title">Legend Feed</h2>
-          <a href="post.php" class="hol-btn-outline-red hol-btn">+ New Entry</a>
-        </div>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div class="hol-entry-grid">
           <?php if ($entries->num_rows === 0): ?>
             <p style="color:var(--text-secondary);">No entries yet — be the first to post one.</p>
           <?php endif; ?>
@@ -89,9 +71,9 @@ require __DIR__.'/includes/header.php';
         </div>
       </div>
 
-      <div>
-        <h2 class="hol-section-title" style="margin-bottom:20px;">Your Rank</h2>
-        <div class="hol-rank-card" style="margin-bottom:32px;">
+      <aside class="hol-sidebar">
+        <h2 class="hol-section-heading hol-sidebar-title">Your Rank</h2>
+        <div class="hol-rank-panel hol-rank-card--compact" style="margin-bottom:20px;">
           <div class="hol-rank-head">
             <div class="hol-rank-badge"><span><?php echo htmlspecialchars(substr(calculate_rank($me['rep']),0,1)); ?></span></div>
             <div>
@@ -101,17 +83,17 @@ require __DIR__.'/includes/header.php';
           </div>
         </div>
 
-        <h2 class="hol-section-title" style="margin-bottom:20px;">HALL LEADERBOARD</h2>
-        <div class="hol-rank-card">
+        <h2 class="hol-section-heading hol-sidebar-title">HALL LEADERBOARD</h2>
+        <div class="hol-rank-panel">
           <?php while ($row = $topThree->fetch_assoc()): ?>
-            <div class="hol-lb-row">
-              <div class="hol-lb-rank"><?php echo (int)$row['position']; ?>. <span class="hol-lb-diamond">◆</span> <?php echo htmlspecialchars($row['username']); ?></div>
-              <div class="hol-lb-score"><?php echo (int)$row['rep']; ?></div>
+            <div class="hol-leaderboard-row">
+              <div class="hol-leaderboard-rank"><?php echo (int)$row['position']; ?>. <span class="hol-leaderboard-diamond">◆</span> <?php echo htmlspecialchars($row['username']); ?></div>
+              <div class="hol-leaderboard-score"><?php echo (int)$row['rep']; ?></div>
             </div>
           <?php endwhile; ?>
-          <a href="leaderboard.php" class="hol-btn-outline-red hol-btn" style="width:100%;justify-content:center;margin-top:16px;display:flex;">View Full Leaderboard →</a>
+          <a href="leaderboard.php" class="hol-button-outline-red hol-button hol-leaderboard-btn">View Full Leaderboard →</a>
         </div>
-      </div>
+      </aside>
     </div>
   </div>
 </div>

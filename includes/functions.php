@@ -90,7 +90,7 @@ function require_admin() {
 }
 
 /* ------------------------------------------------------------
- *  calculate_rank()  —  turns a raw rep total into the
+ *  calculate_rank()  turns a raw rep total into the
  *  matching Legend rank name for display.
  * ---------------------------------------------------------- */
 function calculate_rank($rep) {
@@ -102,7 +102,7 @@ function calculate_rank($rep) {
 }
 
 /* ------------------------------------------------------------
- *  rep_for_type()  —  how much reputation a new entry earns,
+ *  rep_for_type()  how much reputation a new entry earns,
  *  based on the type of achievement being posted.
  * ---------------------------------------------------------- */
 function rep_for_type($type) {

@@ -36,32 +36,32 @@ $pageTitle = 'Edit Entry · Hall of Legends';
 $pageCss = 'post.css';
 require __DIR__.'/includes/header.php';
 ?>
-<div class="hol-screen">
-  <div class="hol-panel">
-    <h1 class="hol-glow-heading" style="font-size:34px;text-align:center;margin-bottom:40px;">Edit Entry</h1>
-    <?php foreach ($errors as $e): ?><p class="hol-error"><?php echo htmlspecialchars($e); ?></p><?php endforeach; ?>
+<div class="hol-page-screen">
+  <div class="hol-page-panel">
+    <h1 class="hol-page-heading" style="font-size:34px;text-align:center;margin-bottom:40px;">Edit Entry</h1>
+    <?php foreach ($errors as $e): ?><p class="hol-form-error"><?php echo htmlspecialchars($e); ?></p><?php endforeach; ?>
     <form method="POST" action="edit.php?id=<?php echo $entryId; ?>">
-      <div class="hol-field">
-        <label class="hol-label" for="title">Title:</label>
-        <input class="hol-input" type="text" id="title" name="title" value="<?php echo htmlspecialchars($_POST['title'] ?? $entry['title']); ?>" required>
+      <div class="hol-form-field">
+        <label class="hol-form-label" for="title">Title:</label>
+        <input class="hol-form-input" type="text" id="title" name="title" value="<?php echo htmlspecialchars($_POST['title'] ?? $entry['title']); ?>" required>
       </div>
-      <div class="hol-field">
-        <label class="hol-label" for="game">Game:</label>
-        <input class="hol-input" type="text" id="game" name="game" value="<?php echo htmlspecialchars($_POST['game'] ?? $entry['game']); ?>" required>
+      <div class="hol-form-field">
+        <label class="hol-form-label" for="game">Game:</label>
+        <input class="hol-form-input" type="text" id="game" name="game" value="<?php echo htmlspecialchars($_POST['game'] ?? $entry['game']); ?>" required>
       </div>
-      <div class="hol-field">
-        <label class="hol-label" for="type">Type:</label>
-        <select class="hol-input" id="type" name="type" required>
+      <div class="hol-form-field">
+        <label class="hol-form-label" for="type">Type:</label>
+        <select class="hol-form-input" id="type" name="type" required>
           <?php foreach (['Speedrun','Screenshot','Boss Kill','Clip'] as $t): ?>
             <option value="<?php echo $t; ?>" <?php echo (($_POST['type'] ?? $entry['type']) === $t) ? 'selected' : ''; ?>><?php echo $t; ?></option>
           <?php endforeach; ?>
         </select>
       </div>
-      <div class="hol-field">
-        <label class="hol-label" for="description">Description:</label>
-        <textarea class="hol-textarea" id="description" name="description" required><?php echo htmlspecialchars($_POST['description'] ?? $entry['description']); ?></textarea>
+      <div class="hol-form-field">
+        <label class="hol-form-label" for="description">Description:</label>
+        <textarea class="hol-form-textarea" id="description" name="description" required><?php echo htmlspecialchars($_POST['description'] ?? $entry['description']); ?></textarea>
       </div>
-      <button type="submit" class="hol-btn hol-btn-primary">Save Changes</button>
+      <button type="submit" class="hol-button hol-button-primary">Save Changes</button>
     </form>
   </div>
 </div>

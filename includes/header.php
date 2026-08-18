@@ -35,19 +35,23 @@ $page_css   = $page_css   ?? null;
         <link rel="stylesheet" href="assets/styles/<?php echo e($page_css); ?>">
     <?php endif; ?>
 </head>
+<!-- Animation for background -->
 <body>
+    <div class="hol-scanner-bg" aria-hidden="true">
+        <canvas id="hol-scanner-canvas"></canvas>
+    </div>
 
 <!-- ---------------- BUTTON NAVIGATION ---------------- -->
 <?php if (is_logged_in()): ?>
-    <div class="hol-orb-nav">
+    <div class="hol-header-nav">
         <?php if (is_admin()): ?>
             <!-- This button ONLY shows for admins -->
-            <a href="moderate.php" class="hol-orb-btn hol-orb-btn--mod">Moderate</a>
+            <a href="moderate.php" class="hol-header-btn hol-header-btn--mod">Moderate</a>
         <?php endif; ?>
 
         <!-- Greet the user by the username we saved in the session -->
-        <span class="hol-orb-who">Hi, <?php echo e($_SESSION['username']); ?></span>
-        <a href="logout.php" class="hol-orb-btn hol-orb-btn--ghost">Log Out</a>
+        <span class="hol-header-who">Hi, <?php echo e($_SESSION['username']); ?></span>
+        <a href="logout.php" class="hol-header-btn hol-header-btn--ghost">Log Out</a>
     </div>
 <?php endif; ?>
 

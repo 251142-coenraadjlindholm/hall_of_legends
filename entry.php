@@ -36,8 +36,8 @@ $pageTitle = htmlspecialchars($entry['title']).' · Hall of Legends';
 $pageCss = 'entry.css';
 require __DIR__.'/includes/header.php';
 ?>
-<div class="hol-screen">
-  <div class="hol-panel">
+<div class="hol-page-screen">
+  <div class="hol-page-panel">
     <a href="index.php" class="hol-back-link">← Back to Feed</a>
 
     <?php if ($entry['file_path']): ?>
@@ -50,7 +50,7 @@ require __DIR__.'/includes/header.php';
         <?php endif; ?>
       </div>
     <?php else: ?>
-      <div class="hol-dropzone" style="min-height:400px;margin-bottom:32px;">Clip/ Screenshot Placeholder</div>
+      <div class="hol-form-dropzone" style="min-height:400px;margin-bottom:32px;">Clip/ Screenshot Placeholder</div>
     <?php endif; ?>
 
     <div class="hol-entry-head">
@@ -76,15 +76,15 @@ require __DIR__.'/includes/header.php';
 
     <?php if ($isOwner || is_admin()): ?>
       <div style="display:flex;gap:12px;margin-bottom:40px;">
-        <a href="edit.php?id=<?php echo $entryId; ?>" class="hol-btn-outline-red hol-btn">Edit Entry</a>
+        <a href="edit.php?id=<?php echo $entryId; ?>" class="hol-button-outline-red hol-button">Edit Entry</a>
         <form method="POST" action="delete.php" data-confirm="Delete this entry? This cannot be undone.">
           <input type="hidden" name="entry_id" value="<?php echo $entryId; ?>">
-          <button type="submit" class="hol-btn-outline-red hol-btn">Delete Entry</button>
+          <button type="submit" class="hol-button-outline-red hol-button">Delete Entry</button>
         </form>
       </div>
     <?php endif; ?>
 
-    <h2 class="hol-section-title" style="margin-bottom:20px;">Comments</h2>
+    <h2 class="hol-section-heading" style="margin-bottom:20px;">Comments</h2>
     <?php while ($c = $comments->fetch_assoc()): ?>
       <div class="hol-comment-row">
         <div class="hol-avatar"><?php echo htmlspecialchars(avatar_initials($c['username'])); ?></div>
@@ -97,8 +97,8 @@ require __DIR__.'/includes/header.php';
 
     <form method="POST" action="comment.php" style="display:flex;gap:12px;margin-top:20px;">
       <input type="hidden" name="entry_id" value="<?php echo $entryId; ?>">
-      <input class="hol-input" type="text" name="text" placeholder="Add a comment..." required>
-      <button type="submit" class="hol-btn hol-btn-primary" style="width:auto;padding:16px 28px;">Post</button>
+      <input class="hol-form-input" type="text" name="text" placeholder="Add a comment..." required>
+      <button type="submit" class="hol-button hol-button-primary" style="width:auto;padding:16px 28px;">Post</button>
     </form>
   </div>
 </div>

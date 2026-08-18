@@ -54,28 +54,28 @@ $pageTitle = 'New Entry · Hall of Legends';
 $pageCss = 'post.css';
 require __DIR__.'/includes/header.php';
 ?>
-<div class="hol-screen">
-  <div class="hol-panel">
-    <h1 class="hol-glow-heading" style="font-size:34px;text-align:center;margin-bottom:40px;">New Entry</h1>
+<div class="hol-page-screen">
+  <div class="hol-page-panel">
+    <h1 class="hol-page-heading" style="font-size:34px;text-align:center;margin-bottom:40px;">New Entry</h1>
 
     <?php foreach ($errors as $e): ?>
-      <p class="hol-error"><?php echo htmlspecialchars($e); ?></p>
+      <p class="hol-form-error"><?php echo htmlspecialchars($e); ?></p>
     <?php endforeach; ?>
 
     <form method="POST" action="post.php" enctype="multipart/form-data">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch;margin-bottom:32px;">
         <div>
-          <div class="hol-field">
-            <label class="hol-label" for="title">Title:<span class="hol-required">*</span></label>
-            <input class="hol-input" type="text" id="title" name="title" placeholder="Title" required value="<?php echo htmlspecialchars($_POST['title'] ?? ''); ?>">
+          <div class="hol-form-field">
+            <label class="hol-form-label" for="title">Title:<span class="hol-form-required">*</span></label>
+            <input class="hol-form-input" type="text" id="title" name="title" placeholder="Title" required value="<?php echo htmlspecialchars($_POST['title'] ?? ''); ?>">
           </div>
-          <div class="hol-field">
-            <label class="hol-label" for="game">Game:<span class="hol-required">*</span></label>
-            <input class="hol-input" type="text" id="game" name="game" placeholder="Game" required value="<?php echo htmlspecialchars($_POST['game'] ?? ''); ?>">
+          <div class="hol-form-field">
+            <label class="hol-form-label" for="game">Game:<span class="hol-form-required">*</span></label>
+            <input class="hol-form-input" type="text" id="game" name="game" placeholder="Game" required value="<?php echo htmlspecialchars($_POST['game'] ?? ''); ?>">
           </div>
-          <div class="hol-field">
-            <label class="hol-label" for="type">Type:<span class="hol-required">*</span></label>
-            <select class="hol-input" id="type" name="type" required>
+          <div class="hol-form-field">
+            <label class="hol-form-label" for="type">Type:<span class="hol-form-required">*</span></label>
+            <select class="hol-form-input" id="type" name="type" required>
               <option value="">Select a type</option>
               <?php foreach (['Speedrun','Screenshot','Boss Kill','Clip'] as $t): ?>
                 <option value="<?php echo $t; ?>" <?php echo (($_POST['type'] ?? '') === $t) ? 'selected' : ''; ?>><?php echo $t; ?></option>
@@ -84,19 +84,19 @@ require __DIR__.'/includes/header.php';
           </div>
         </div>
 
-        <div class="hol-dropzone" id="dropzone">
+        <div class="hol-form-dropzone" id="dropzone">
           <span id="dropzone-label">Drop file or browse</span>
           <input type="file" name="file" id="file-input" hidden>
         </div>
       </div>
 
-      <div class="hol-field">
-        <label class="hol-label" for="description">Description:<span class="hol-required">*</span></label>
-        <textarea class="hol-textarea" id="description" name="description" required><?php echo htmlspecialchars($_POST['description'] ?? ''); ?></textarea>
+      <div class="hol-form-field">
+        <label class="hol-form-label" for="description">Description:<span class="hol-form-required">*</span></label>
+        <textarea class="hol-form-textarea" id="description" name="description" required><?php echo htmlspecialchars($_POST['description'] ?? ''); ?></textarea>
       </div>
 
       <div style="margin-top:32px;">
-        <button type="submit" class="hol-btn hol-btn-primary">Post to the hall</button>
+        <button type="submit" class="hol-button hol-button-primary">Post to the hall</button>
       </div>
     </form>
   </div>

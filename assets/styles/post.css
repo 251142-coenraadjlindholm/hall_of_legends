@@ -1,4 +1,4 @@
-.hol-dropzone.is-dragging {
+.hol-form-dropzone.is-dragging {
   border-color: var(--accent-cyan);
   color: var(--text-primary);
 }

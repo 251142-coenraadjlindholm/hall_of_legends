@@ -37,27 +37,27 @@ $pageTitle = 'Log In · Hall of Legends';
 $pageCss = 'login.css';
 require __DIR__.'/includes/header.php';
 ?>
-<div class="hol-screen">
-  <div class="hol-panel hol-panel--narrow">
+<div class="hol-page-screen">
+  <div class="hol-page-panel hol-page-panel--narrow">
     <div class="hol-auth-tabs">
       <span class="hol-auth-tab is-active">LOG IN</span>
       <a href="register.php" class="hol-auth-tab">Sign Up</a>
     </div>
 
     <?php foreach ($errors as $e): ?>
-      <p class="hol-error"><?php echo htmlspecialchars($e); ?></p>
+      <p class="hol-form-error"><?php echo htmlspecialchars($e); ?></p>
     <?php endforeach; ?>
 
     <form method="POST" action="login.php">
-      <div class="hol-field">
-        <label class="hol-label" for="username">Username or Email:</label>
-        <input class="hol-input" type="text" id="username" name="username" value="<?php echo htmlspecialchars($_POST['username'] ?? ''); ?>">
+      <div class="hol-form-field">
+        <label class="hol-form-label" for="username">Username or Email:</label>
+        <input class="hol-form-input" type="text" id="username" name="username" value="<?php echo htmlspecialchars($_POST['username'] ?? ''); ?>">
       </div>
-      <div class="hol-field" style="margin-bottom:20px;">
-        <label class="hol-label" for="password">Password:</label>
-        <input class="hol-input" type="password" id="password" name="password">
+      <div class="hol-form-field" style="margin-bottom:20px;">
+        <label class="hol-form-label" for="password">Password:</label>
+        <input class="hol-form-input" type="password" id="password" name="password">
       </div>
-      <button type="submit" class="hol-btn hol-btn-primary">Enter The Hall</button>
+      <button type="submit" class="hol-button hol-button-primary">Enter The Hall</button>
     </form>
 
     <?php require __DIR__.'/includes/social-icons.php'; ?>
