@@ -1,6 +1,6 @@
 # Hall of Legends
 
-A gaming achievement community — post speedruns, boss kills, and
+A gaming achievement community: post speedruns, boss kills, and
 screenshots, earn reputation, and climb the leaderboard. Built with
 PHP, MySQL (mysqli), vanilla JavaScript, and plain CSS.
 
@@ -8,10 +8,10 @@ PHP, MySQL (mysqli), vanilla JavaScript, and plain CSS.
 Some things deserve to be remembered.
 
 ## Behavioural twist
-Reputation isn't permanent — it's earned through activity.
+Reputation isn't permanent it's earned through activity.
 
 ## Build constraint
-No traditional navigation menu — every screen change happens through
+No traditional navigation menu: every screen change happens through
 a button, pill, or clickable card (see the floating button cluster in
 `includes/header.php`).
 
@@ -46,9 +46,9 @@ All seeded accounts use the password: `password`
 
 ## Advanced SQL used
 
-- **`entry_feed_view`** — a JOIN (entries + users) combined with a correlated SUBQUERY (live like count).
-- **`leaderboard_view`** — a WINDOW FUNCTION (`RANK() OVER (ORDER BY rep DESC)`) to compute live leaderboard position.
-- Every query in the app uses prepared statements (`bind_param`) — no raw string interpolation into SQL.
+- **`entry_feed_view`** a JOIN (entries + users) combined with a correlated SUBQUERY (live like count).
+- **`leaderboard_view`** a WINDOW FUNCTION (`RANK() OVER (ORDER BY rep DESC)`) to compute live leaderboard position.
+- Every query in the app uses prepared statements (`bind_param`) no raw string interpolation into SQL.
 
 ## Role-based access
 
@@ -67,48 +67,7 @@ All seeded accounts use the password: `password`
 
 ## ER Diagram
 
-```mermaid
-erDiagram
-    USERS ||--o{ ENTRIES : posts
-    USERS ||--o{ LIKES : gives
-    USERS ||--o{ COMMENTS : writes
-    ENTRIES ||--o{ LIKES : receives
-    ENTRIES ||--o{ COMMENTS : receives
 
-    USERS {
-        int user_id PK
-        varchar username
-        varchar email
-        varchar password
-        enum role
-        int rep
-        datetime created_at
-    }
-    ENTRIES {
-        int entry_id PK
-        int user_id FK
-        varchar title
-        varchar game
-        varchar type
-        text description
-        varchar file_path
-        int rep_awarded
-        datetime created_at
-    }
-    LIKES {
-        int like_id PK
-        int entry_id FK
-        int user_id FK
-        datetime created_at
-    }
-    COMMENTS {
-        int comment_id PK
-        int entry_id FK
-        int user_id FK
-        text text
-        datetime created_at
-    }
-```
 
 
 ## Demo video
