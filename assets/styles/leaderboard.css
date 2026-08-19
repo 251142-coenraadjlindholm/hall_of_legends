@@ -1,4 +1,4 @@
 /* Leaderboard-specific: the row/column layout is defined inline in
-   leaderboard.php; row styling itself (.hol-leaderboard-row,
-   .hol-leaderboard-score, .hol-leaderboard-diamond) lives in base.css
+   leaderboard.php; row styling itself (.leaderboard-row,
+   .leaderboard-score, .leaderboard-diamond) lives in base.css
    since index.php and moderate.php also render leaderboard-style rows. */

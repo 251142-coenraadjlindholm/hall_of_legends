@@ -10,9 +10,9 @@
 </main><!-- /.page  (closes the <main> opened in header.php) -->
 
 <!-- ---------------- FOOTER ---------------- -->
-<!-- <footer class="hol-footer">
+<!-- <footer class="footer">
     <p>Hall of Legends · Some things deserve to be remembered.</p>
-    <p class="hol-footer-small">Every query here runs through prepared statements.</p>
+    <p class="footer-small">Every query here runs through prepared statements.</p>
 </footer> -->
 
 <script src="assets/js/main.js"></script>
@@ -31,7 +31,7 @@
         });
     }, { threshold: 0.12 });
 
-    document.querySelectorAll('.hol-entry-card, .hol-rank-card').forEach(function (el) {
+    document.querySelectorAll('.entry-card, .rank-card').forEach(function (el) {
         io.observe(el);
     });
 })();

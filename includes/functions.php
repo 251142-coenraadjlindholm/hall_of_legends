@@ -101,6 +101,30 @@ function calculate_rank($rep) {
     return 'Bronze Legend';
 }
 
+function rank_symbol_image($rep) {
+    $rank = calculate_rank($rep);
+    $map = [
+        'Diamond Legend' => 'Diamond.png',
+        'Platinum Legend' => 'Platinum.png',
+        'Gold Legend' => 'Gold.png',
+        'Silver Legend' => 'Silver.png',
+        'Bronze Legend' => 'Bronze.png',
+    ];
+
+    return $map[$rank] ?? 'Bronze.png';
+}
+
+function game_cover_image($game) {
+    $map = [
+        'Celeste' => 'Celeste.jpg',
+        'Elden Ring' => 'Melania.jpg',
+        'Hollow Knight' => 'Hollowknight.jpg',
+        'Hades' => 'Hades.jpg',
+    ];
+
+    return $map[$game] ?? null;
+}
+
 /* ------------------------------------------------------------
  *  rep_for_type()  how much reputation a new entry earns,
  *  based on the type of achievement being posted.

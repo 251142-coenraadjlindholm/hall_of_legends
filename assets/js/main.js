@@ -1,6 +1,6 @@
 // Animation for background Logic
 document.addEventListener('DOMContentLoaded', function () {
-  var canvas = document.getElementById('hol-scanner-canvas');
+  var canvas = document.getElementById('scanner-canvas');
 
   // If the canvas element exists, set up the animation logic.
   if (canvas) {

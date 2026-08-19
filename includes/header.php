@@ -17,9 +17,9 @@
  *  base styles.
  * ============================================================ */
 
-// If a page forgot to set a title, fall back to a default.
-$page_title = $page_title ?? 'Hall of Legends';
-$page_css   = $page_css   ?? null;
+// Keep compatibility with the app's older camelCase variables and the header's expected snake_case names.
+$page_title = $page_title ?? $pageTitle ?? 'Hall of Legends';
+$page_css   = $page_css ?? $pageCss ?? null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,21 +37,21 @@ $page_css   = $page_css   ?? null;
 </head>
 <!-- Animation for background -->
 <body>
-    <div class="hol-scanner-bg" aria-hidden="true">
-        <canvas id="hol-scanner-canvas"></canvas>
+    <div class="scanner-bg" aria-hidden="true">
+        <canvas id="scanner-canvas"></canvas>
     </div>
 
 <!-- ---------------- BUTTON NAVIGATION ---------------- -->
 <?php if (is_logged_in()): ?>
-    <div class="hol-header-nav">
+    <div class="header-nav">
         <?php if (is_admin()): ?>
             <!-- This button ONLY shows for admins -->
-            <a href="moderate.php" class="hol-header-btn hol-header-btn--mod">Moderate</a>
+            <a href="moderate.php" class="header-btn header-btn--mod">Moderate</a>
         <?php endif; ?>
 
         <!-- Greet the user by the username we saved in the session -->
-        <span class="hol-header-who">Hi, <?php echo e($_SESSION['username']); ?></span>
-        <a href="logout.php" class="hol-header-btn hol-header-btn--ghost">Log Out</a>
+        <span class="header-who">Hi, <?php echo e($_SESSION['username']); ?></span>
+        <a href="logout.php" class="header-btn header-btn--ghost">Log Out</a>
     </div>
 <?php endif; ?>
 

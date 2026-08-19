@@ -36,58 +36,63 @@ $pageTitle = htmlspecialchars($entry['title']).' · Hall of Legends';
 $pageCss = 'entry.css';
 require __DIR__.'/includes/header.php';
 ?>
-<div class="hol-page-screen">
-  <div class="hol-page-panel">
-    <a href="index.php" class="hol-back-link">← Back to Feed</a>
+<div class="page-screen">
+  <div class="page-panel">
+    <a href="index.php" class="back-link">← Back to Feed</a>
 
+    <?php $fallbackCover = game_cover_image($entry['game']); ?>
     <?php if ($entry['file_path']): ?>
       <?php $ext = strtolower(pathinfo($entry['file_path'], PATHINFO_EXTENSION)); ?>
-      <div class="hol-media-frame">
+      <div class="media-frame">
         <?php if (in_array($ext, ['mp4','webm'])): ?>
           <video controls src="<?php echo htmlspecialchars($entry['file_path']); ?>"></video>
         <?php else: ?>
           <img src="<?php echo htmlspecialchars($entry['file_path']); ?>" alt="<?php echo htmlspecialchars($entry['title']); ?>">
         <?php endif; ?>
       </div>
+    <?php elseif ($fallbackCover): ?>
+      <div class="media-frame">
+        <img src="<?php echo htmlspecialchars($fallbackCover); ?>" alt="<?php echo htmlspecialchars($entry['game']); ?> cover image" class="game-cover-image">
+      </div>
     <?php else: ?>
-      <div class="hol-form-dropzone" style="min-height:400px;margin-bottom:32px;">Clip/ Screenshot Placeholder</div>
+      <div class="form-dropzone" style="min-height:400px;margin-bottom:32px;">Clip/ Screenshot Placeholder</div>
     <?php endif; ?>
 
-    <div class="hol-entry-head">
-      <div class="hol-entry-author">
-        <div class="hol-avatar"><?php echo htmlspecialchars(avatar_initials($entry['username'])); ?></div>
-        <div class="hol-author-meta">
+    <div class="entry-head">
+      <div class="entry-author">
+        <div class="avatar"><?php echo htmlspecialchars(avatar_initials($entry['username'])); ?></div>
+        <div class="author-meta">
           <div class="name"><?php echo htmlspecialchars($entry['username']); ?></div>
           <div class="sub"><?php echo htmlspecialchars($entry['game']); ?> · <?php echo date('M j, Y', strtotime($entry['created_at'])); ?></div>
         </div>
       </div>
-      <span class="hol-rep-badge">+<?php echo (int)$entry['rep_awarded']; ?> rep</span>
+      <span class="rep-badge">+<?php echo (int)$entry['rep_awarded']; ?> rep</span>
     </div>
 
-    <p class="hol-entry-title" style="font-size:22px;"><?php echo htmlspecialchars($entry['title']); ?></p>
+    <p class="entry-title" style="font-size:22px;"><?php echo htmlspecialchars($entry['title']); ?></p>
     <p style="color:var(--text-secondary);margin-bottom:24px;"><?php echo nl2br(htmlspecialchars($entry['description'])); ?></p>
 
     <form method="POST" action="like.php" style="margin-bottom:16px;">
       <input type="hidden" name="entry_id" value="<?php echo $entryId; ?>">
-      <button type="submit" class="hol-like-row" style="background:none;border:none;cursor:pointer;">
+      <button type="submit" class="like-row" style="background:none;border:none;cursor:pointer;">
         <span><?php echo $hasLiked ? '♥ Liked' : '♡ Like'; ?></span> <span><?php echo (int)$entry['like_count']; ?></span>
       </button>
     </form>
 
     <?php if ($isOwner || is_admin()): ?>
       <div style="display:flex;gap:12px;margin-bottom:40px;">
-        <a href="edit.php?id=<?php echo $entryId; ?>" class="hol-button-outline-red hol-button">Edit Entry</a>
+        <a href="edit.php?id=<?php echo $entryId; ?>" class="button-outline-red button">Edit Entry</a>
         <form method="POST" action="delete.php" data-confirm="Delete this entry? This cannot be undone.">
           <input type="hidden" name="entry_id" value="<?php echo $entryId; ?>">
-          <button type="submit" class="hol-button-outline-red hol-button">Delete Entry</button>
+          <button type="submit" class="button-outline-red button">Delete Entry</button>
         </form>
       </div>
     <?php endif; ?>
 
-    <h2 class="hol-section-heading" style="margin-bottom:20px;">Comments</h2>
+    <h2 class="section-heading" style="margin-bottom:20px;">Comments</h2>
     <?php while ($c = $comments->fetch_assoc()): ?>
-      <div class="hol-comment-row">
-        <div class="hol-avatar"><?php echo htmlspecialchars(avatar_initials($c['username'])); ?></div>
+      <div class="comment-row">
+        <div class="avatar"><?php echo htmlspecialchars(avatar_initials($c['username'])); ?></div>
         <div class="body">
           <span class="user"><?php echo htmlspecialchars($c['username']); ?></span>
           <span class="text"><?php echo htmlspecialchars($c['text']); ?></span>
@@ -97,8 +102,8 @@ require __DIR__.'/includes/header.php';
 
     <form method="POST" action="comment.php" style="display:flex;gap:12px;margin-top:20px;">
       <input type="hidden" name="entry_id" value="<?php echo $entryId; ?>">
-      <input class="hol-form-input" type="text" name="text" placeholder="Add a comment..." required>
-      <button type="submit" class="hol-button hol-button-primary" style="width:auto;padding:16px 28px;">Post</button>
+      <input class="form-input" type="text" name="text" placeholder="Add a comment..." required>
+      <button type="submit" class="button button-primary" style="width:auto;padding:16px 28px;">Post</button>
     </form>
   </div>
 </div>

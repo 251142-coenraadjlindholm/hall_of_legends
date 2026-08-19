@@ -1,4 +1,4 @@
-.hol-back-link {
+.back-link {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -9,17 +9,29 @@
   margin-bottom: 24px;
 }
 
-.hol-media-frame {
+.media-frame {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  margin-bottom: 32px;
+  margin: 0 auto 32px;
   background: var(--bg-panel-alt);
+  width: min(100%, 760px);
+  text-align: center;
 }
 
-.hol-media-frame img,
-.hol-media-frame video {
-  width: 100%;
+.media-frame img,
+.media-frame video {
+  display: block;
+  max-width: 100%;
   max-height: 480px;
   object-fit: cover;
+  margin: 0 auto;
+}
+
+.media-frame .game-cover-image {
+  width: auto;
+  max-width: 760px;
+  max-height: 520px;
+  object-fit: contain;
+  margin: 0 auto;
   display: block;
 }

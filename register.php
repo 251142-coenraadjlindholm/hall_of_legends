@@ -50,35 +50,35 @@ $pageTitle = 'Sign Up · Hall of Legends';
 $pageCss = 'register.css';
 require __DIR__.'/includes/header.php';
 ?>
-<div class="hol-page-screen">
-  <div class="hol-page-panel hol-page-panel--narrow">
-    <div class="hol-auth-tabs">
-      <a href="login.php" class="hol-auth-tab">LOG IN</a>
-      <span class="hol-auth-tab is-active">Sign Up</span>
+<div class="page-screen">
+  <div class="page-panel page-panel--narrow">
+    <div class="auth-tabs">
+      <a href="login.php" class="auth-tab">LOG IN</a>
+      <span class="auth-tab is-active">Sign Up</span>
     </div>
 
     <?php foreach ($errors as $e): ?>
-      <p class="hol-form-error"><?php echo htmlspecialchars($e); ?></p>
+      <p class="form-error"><?php echo htmlspecialchars($e); ?></p>
     <?php endforeach; ?>
 
     <form method="POST" action="register.php">
-      <div class="hol-form-field">
-        <label class="hol-form-label" for="username">Username:<span class="hol-form-required">*</span></label>
-        <input class="hol-form-input" type="text" id="username" name="username" required value="<?php echo htmlspecialchars($_POST['username'] ?? ''); ?>">
+      <div class="form-field">
+        <label class="form-label" for="username">Username:<span class="form-required">*</span></label>
+        <input class="form-input" type="text" id="username" name="username" required value="<?php echo htmlspecialchars($_POST['username'] ?? ''); ?>">
       </div>
-      <div class="hol-form-field">
-        <label class="hol-form-label" for="email">Email:<span class="hol-form-required">*</span></label>
-        <input class="hol-form-input" type="email" id="email" name="email" required value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
+      <div class="form-field">
+        <label class="form-label" for="email">Email:<span class="form-required">*</span></label>
+        <input class="form-input" type="email" id="email" name="email" required value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
       </div>
-      <div class="hol-form-field">
-        <label class="hol-form-label" for="password">Password:<span class="hol-form-required">*</span></label>
-        <input class="hol-form-input" type="password" id="password" name="password" required>
+      <div class="form-field">
+        <label class="form-label" for="password">Password:<span class="form-required">*</span></label>
+        <input class="form-input" type="password" id="password" name="password" required>
       </div>
-      <div class="hol-form-field" style="margin-bottom:20px;">
-        <label class="hol-form-label" for="confirm_password">Confirm Password:<span class="hol-form-required">*</span></label>
-        <input class="hol-form-input" type="password" id="confirm_password" name="confirm_password" required>
+      <div class="form-field" style="margin-bottom:20px;">
+        <label class="form-label" for="confirm_password">Confirm Password:<span class="form-required">*</span></label>
+        <input class="form-input" type="password" id="confirm_password" name="confirm_password" required>
       </div>
-      <button type="submit" class="hol-button hol-button-primary">Enter The Hall</button>
+      <button type="submit" class="button button-primary">Enter The Hall</button>
     </form>
 
     <?php require __DIR__.'/includes/social-icons.php'; ?>
