@@ -106,4 +106,4 @@ The schema includes:
 
 
 ## Attributions
-[text](https://www.magnific.com/free-vector/colored-isolated-realistic-diamond-gemstone-icon-set-round-shapes-different-colors_5084106.htm#fromView=search&page=1&position=5&uuid=c9ba584f-6d2c-408f-b536-d18908ec35f1&track=ais_hybrid&query=diamond)
+[Magnific.com: Colored and isolated realistic diamond gemstone icon](https://www.magnific.com/free-vector/colored-isolated-realistic-diamond-gemstone-icon-set-round-shapes-different-colors_5084106.htm#fromView=search&page=1&position=5&uuid=c9ba584f-6d2c-408f-b536-d18908ec35f1&track=ais_hybrid&query=diamond)
