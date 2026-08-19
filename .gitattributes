@@ -1,0 +1,14 @@
+*.php linguist-language=PHP
+*.phtml linguist-language=PHP
+*.html linguist-language=HTML
+*.htm linguist-language=HTML
+*.css linguist-language=CSS
+*.js linguist-language=JavaScript
+*.json linguist-language=JSON
+*.sql linguist-language=SQL
+*.md linguist-documentation
+
+vendor/** linguist-vendored
+node_modules/** linguist-vendored
+dist/** linguist-vendored
+build/** linguist-vendored
