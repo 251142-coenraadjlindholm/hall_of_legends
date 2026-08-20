@@ -22,24 +22,70 @@ The app is built with PHP and MySQL, with one shared stylesheet system and page-
 - Vanilla JavaScript
 - Plain CSS
 
-## File structure
+## Project structure
 
-- `index.php` — main feed
-- `entry.php` — entry detail view
-- `leaderboard.php` — leaderboard screen
-- `post.php` — create an entry
-- `edit.php` — edit an existing entry
-- `delete.php` — delete an entry
-- `like.php` — like an entry
-- `comment.php` — add a comment
-- `moderate.php` — admin moderation dashboard
-- `promote.php` — grant/revoke admin access
-- `login.php` / `register.php` — authentication screens
-- `includes/functions.php` — shared helper functions
-- `config/db.php` — database connection
-- `database/hall_of_legends.sql` — schema and seeded data
-- `assets/styles/` — CSS styling
-- `uploads/` — uploaded media files
+```text
+hall_of_legends/
+|-- assets/
+|   |-- js/
+|   |   `-- main.js
+|   `-- styles/
+|       |-- base.css
+|       |-- entry.css
+|       |-- index.css
+|       |-- leaderboard.css
+|       |-- login.css
+|       |-- moderate.css
+|       |-- post.css
+|       `-- register.css
+|-- config/
+|   `-- db.php
+|-- database/
+|   |-- hall_of_legends.sql
+|   `-- upgrade_legend_score_decay.sql
+|-- includes/
+|   |-- footer.php
+|   |-- functions.php
+|   |-- header.php
+|   `-- social-icons.php
+|-- uploads/
+|   `-- .gitattributes
+|-- index.php
+|-- entry.php
+|-- leaderboard.php
+|-- post.php
+|-- edit.php
+|-- delete.php
+|-- like.php
+|-- comment.php
+|-- moderate.php
+|-- promote.php
+|-- login.php
+|-- logout.php
+|-- register.php
+|-- Bronze.png / Silver.png / Gold.png
+|-- Platinum.png / Diamond.png
+|-- Celeste.jpg / Hades.jpg / Hollowknight.jpg / Melania.jpg
+|-- ER Diagram for Hall of Legends.png
+`-- README.md
+```
+
+### Main folders
+
+- `assets/` contains the shared JavaScript and page-specific CSS files.
+- `config/` contains the database connection settings.
+- `database/` contains the schema, seed data, and database upgrade script.
+- `includes/` contains shared layout components and helper functions.
+- `uploads/` stores user-uploaded media files.
+
+### Main PHP pages
+
+- `index.php` displays the main feed and `entry.php` displays an individual entry.
+- `post.php`, `edit.php`, and `delete.php` manage entry content.
+- `like.php` and `comment.php` handle engagement actions.
+- `leaderboard.php` displays rankings and reputation.
+- `login.php`, `register.php`, and `logout.php` handle authentication.
+- `moderate.php` and `promote.php` provide administrator controls.
 
 ## Setup
 
