@@ -101,10 +101,14 @@ The schema includes:
 - The app uses a shared dashboard style with strong game/community branding.
 - Rank badges use custom image assets for Bronze, Silver, Gold, Platinum, and Diamond tiers.
 - Entry detail pages show the uploaded media when present and a game-cover fallback when no upload exists.
+- The animated background continuously layers moving waves, light sweeps, scan lines, grain, and a vignette to create a live game-themed atmosphere.
+- A soft radial highlight follows the cursor across the background while the pointer is active, then fades out when it leaves the page.
 
 ## Video
 
+[Watch the Hall of Legends Demo Video](https://drive.google.com/file/d/1JQB_M3Qg9sqaiMlJvpD82MbJNeyr5cBc/view?usp=sharing)
 
 
 ## Attributions
 [Magnific.com: Colored and isolated realistic diamond gemstone icon](https://www.magnific.com/free-vector/colored-isolated-realistic-diamond-gemstone-icon-set-round-shapes-different-colors_5084106.htm#fromView=search&page=1&position=5&uuid=c9ba584f-6d2c-408f-b536-d18908ec35f1&track=ais_hybrid&query=diamond)
+- `cards.png` image asset
