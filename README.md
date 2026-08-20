@@ -10,7 +10,7 @@ The app is built with PHP and MySQL, with one shared stylesheet system and page-
 - Users can create entries with a title, game, type, description, and optional media upload.
 - Entries earn reputation based on type.
 - Users can like entries and leave comments.
-- A leaderboard ranks users by total reputation.
+- A leaderboard ranks users by active reputation, with 50 rep lost for each day without a new post.
 - Admins can moderate entries and promote or revoke admin access.
 - Rank badges are displayed using symbol images for Bronze, Silver, Gold, Platinum, and Diamond.
 
@@ -74,7 +74,7 @@ Entries are created through `post.php` and stored in `entries`. Each entry inclu
 Users can like and comment on entries. These actions are stored separately in `likes` and `comments`, which keeps the feed and ranking logic clean and scalable.
 
 ### 4. Ranking system
-The `leaderboard_view` calculates each user's position based on reputation using a SQL window function. Rank badges update based on rep totals.
+The `leaderboard_view` calculates each user's position using a SQL window function. Active reputation loses 50 points per day after the user's latest post, with a floor of zero, so inactivity can lower their rank. Users who have never posted do not lose their starting reputation.
 
 ### 5. Administration
 Admins can moderate entries and promote or revoke other admins through `moderate.php` and `promote.php`.
@@ -97,6 +97,7 @@ The schema includes:
 ## Notes
 
 - All SQL queries use prepared statements.
+- For an existing database, run `database/upgrade_legend_score_decay.sql` once in phpMyAdmin to replace the old leaderboard view.
 - The app uses a shared dashboard style with strong game/community branding.
 - Rank badges use custom image assets for Bronze, Silver, Gold, Platinum, and Diamond tiers.
 - Entry detail pages show the uploaded media when present and a game-cover fallback when no upload exists.
